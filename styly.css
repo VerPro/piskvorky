@@ -1,0 +1,12 @@
+/*
+NEFUNGUJE - pozadí
+*/
+
+body {
+  background-image: linear-gradient(#615dad, #ffc8da);
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /*display: flex;
+  flex-direction: column;*/
+}

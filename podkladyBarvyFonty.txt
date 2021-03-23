@@ -1,0 +1,9 @@
+
+font h1 Lobster
+gradient v pozadí: #615dad (fialová) > #ffc8da (růžová)
+
+BARVY:
+barva textu: #ffffff
+podkladová tmavě modrá #283e50
+Tlačítko Pravidla #1fcca4, po najetí myši změna na #1cbb96
+Tlačítko Začít hrát #0197f6, po najetí změna na #0090e9
