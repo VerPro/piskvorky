@@ -26,8 +26,9 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 30%;
-  margin: 50px;
+  /*width: 30%;
+  height: 50%;
+  margin: 40px;*/
   background-color: #283e50;
   border-radius: 10px 10px 0 0;
 }
