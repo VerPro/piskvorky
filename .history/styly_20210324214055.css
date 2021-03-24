@@ -16,7 +16,6 @@ h1 {
   font-family: 'Lobster', cursive;
   text-align: center;
   margin-bottom: 0;
-  font-size: 45px;
 }
 
 p {
@@ -45,10 +44,8 @@ nav {
 
 .buttonPravidla {
   background-color: #1fcca4;
-  padding: 15px;
+  padding: 20px;
   flex-grow: 1;
-  text-decoration: none;
-  color: #ffffff;
   border-bottom: 1px solid #283e50;
 }
 
@@ -58,10 +55,8 @@ nav {
 
 .buttonZacniHrat {
   background-color: #0197f6;
-  padding: 15px;
+  padding: 20px;
   flex-grow: 1;
-  text-decoration: none;
-  color: #ffffff;
 }
 
 .buttonZacniHrat:hover {
