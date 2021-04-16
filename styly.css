@@ -20,7 +20,7 @@ h1 {
   font-size: 45px;
 }
 
-p {
+.pInfo {
   text-align: center;
   width: 95%;
   padding-bottom: 20px;
@@ -57,6 +57,11 @@ nav {
 
 .buttonRules,
 .buttonIndex {
+  background-color: #1fcca4;
+}
+
+.buttonRules:hover,
+.buttonIndex:hover {
   background-color: #1cbb96;
 }
 
@@ -115,7 +120,6 @@ figure figcaption {
 }
 
 @media screen and (min-width: 800px) {
-  /*Toto media query se mi nezdá nastaveno příliš dobře. Pokud máš, milá recenzentko, doporučení, jak to udělat lépe, sem s tím :-). Díky*/
   figure {
     display: flex;
     flex-wrap: wrap;
@@ -153,14 +157,84 @@ figure figcaption {
   align-items: center;
 }
 
-.headerGame {
+.mainGame {
+  display: flex;
+  flex-direction: column;
+}
+
+.headingGame {
   max-width: 80vmin;
   width: 100%;
-  flex-grow: 1;
+}
+
+.navGame {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.buttonsGame {
+  display: flex;
+  flex-direction: row;
+}
+
+.buttonHome {
+  background-color: #1fcca4;
+  border-radius: 5px;
+  padding: 7px;
+  margin: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttonHome:hover {
+  background-color: #1cbb96;
+}
+
+.buttonRestart {
+  background-color: #0197f6;
+  border-radius: 5px;
+  padding: 7px;
+  margin: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttonRestart:hover {
+  background-color: #0090e9;
+}
+
+.pGame {
+  margin: 0;
+  padding: 0;
+}
+
+.pGame img {
+  filter: invert(100%);
 }
 
 .gameGrid {
   max-width: 80vmin;
-  width: 100%;
-  flex-grow: 1;
+  max-height: 80vmin;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.gameGrid button {
+  width: 8vmin;
+  height: 8vmin;
+  border: 1px solid #283e50;
+  background-color: rgba(236, 228, 228, 0.219);
+}
+
+.gameGrid button:hover {
+  background-color: rgba(247, 214, 214, 0.527);
+}
+
+.gameGrid button:focus {
+  background-color: rgba(247, 214, 214, 0.527);
 }
