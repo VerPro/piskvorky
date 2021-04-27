@@ -238,3 +238,15 @@ figure figcaption {
 .gameGrid button:focus {
   background-color: rgba(247, 214, 214, 0.527);
 }
+
+.imgGameCross {
+  background-image: url(images/cross.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.imgGameCircle {
+  background-image: url(images/circle.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
