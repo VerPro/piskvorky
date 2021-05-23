@@ -17,7 +17,7 @@ const change = (event) => {
     onTurn = 'circle';
     event.target.disabled = true;
   }
-  console.log(isWinningMove(buttonElm));
+  console.log(isWinningMove(event.target));
 };
 
 const buttonElm = document.querySelectorAll('.gameGrid button');
@@ -43,8 +43,8 @@ const getField = (row, column) => {
 
 const getPosition = (field) => {
   let fieldIndex = 0;
-  while (fieldIndex < field.length) {
-    if (field === field[fieldIndex]) {
+  while (fieldIndex < buttonElm.length) {
+    if (field === field[buttonElm]) {
       break;
     }
     fieldIndex++;
@@ -58,8 +58,8 @@ const getPosition = (field) => {
 
 const winningSymbols = 5;
 const isWinningMove = (field) => {
-  const from = getPosition(buttonElm);
-  const symbol = getSymbol(buttonElm);
+  const from = getPosition(field);
+  const symbol = getSymbol(field);
 
   let i;
 
@@ -73,7 +73,7 @@ const isWinningMove = (field) => {
 
   // Koukni doprava
   i = from.column;
-  while (i < boardSize - 1 && symbol === getSymbol(getField(from.row, i + 1))) {
+  while (i < gridsize - 1 && symbol === getSymbol(getField(from.row, i + 1))) {
     inRow++;
     i++;
   }
@@ -93,7 +93,7 @@ const isWinningMove = (field) => {
   // Koukni dolu
   i = from.row;
   while (
-    i < boardSize - 1 &&
+    i < gridsize - 1 &&
     symbol === getSymbol(getField(i + 1, from.column))
   ) {
     inColumn++;
