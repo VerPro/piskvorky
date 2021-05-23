@@ -10,15 +10,14 @@ const change = (event) => {
     onTurnElm.alt = 'Křížek';
     onTurn = 'cross';
     event.target.disabled = true;
-    console.log(isWinningMove(field));
   } else {
     event.target.classList.add('imgGameCross');
     onTurnElm.src = 'images/circle.svg';
     onTurnElm.alt = 'Kolečko';
     onTurn = 'circle';
     event.target.disabled = true;
-    console.log(isWinningMove(field));
   }
+  console.log(isWinningMove(buttonElm));
 };
 
 const buttonElm = document.querySelectorAll('.gameGrid button');
@@ -59,8 +58,8 @@ const getPosition = (field) => {
 
 const winningSymbols = 5;
 const isWinningMove = (field) => {
-  const from = getPosition(field);
-  const symbol = getSymbol(field);
+  const from = getPosition(buttonElm);
+  const symbol = getSymbol(buttonElm);
 
   let i;
 
