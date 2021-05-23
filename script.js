@@ -1,23 +1,33 @@
 'use strict';
 
-let onTurn = 'circle';
-let onTurnElm = document.querySelector('#whoTurn');
+let player = 'circle';
+let previousPlayer = 'křížek';
+let playerElm = document.querySelector('#whoTurn');
 
 const change = (event) => {
-  if (onTurn === 'circle') {
+  if (player === 'circle') {
     event.target.classList.add('imgGameCircle');
-    onTurnElm.src = `images/cross.svg`;
-    onTurnElm.alt = 'Křížek';
-    onTurn = 'cross';
+    playerElm.src = `images/cross.svg`;
+    playerElm.alt = 'Křížek';
+    player = 'cross';
+    previousPlayer = 'kolečko';
     event.target.disabled = true;
   } else {
     event.target.classList.add('imgGameCross');
-    onTurnElm.src = 'images/circle.svg';
-    onTurnElm.alt = 'Kolečko';
-    onTurn = 'circle';
+    playerElm.src = 'images/circle.svg';
+    playerElm.alt = 'Kolečko';
+    player = 'circle';
+    previousPlayer = 'křížek';
     event.target.disabled = true;
   }
-  console.log(isWinningMove(event.target));
+
+  if (isWinningMove(event.target) === true) {
+    alert(`Vyhrává ${previousPlayer}! Gratuluji!`);
+
+    for (let i = 0; i < buttonElm.length; i++) {
+      buttonElm[i].disabled = true;
+    }
+  }
 };
 
 const buttonElm = document.querySelectorAll('.gameGrid button');
@@ -44,7 +54,7 @@ const getField = (row, column) => {
 const getPosition = (field) => {
   let fieldIndex = 0;
   while (fieldIndex < buttonElm.length) {
-    if (field === field[buttonElm]) {
+    if (field === buttonElm[fieldIndex]) {
       break;
     }
     fieldIndex++;
@@ -64,14 +74,14 @@ const isWinningMove = (field) => {
   let i;
 
   let inRow = 1; // Jednička pro právě vybrané políčko
-  // Koukni doleva
+  // Vlevo hleď!
   i = from.column;
   while (i > 0 && symbol === getSymbol(getField(from.row, i - 1))) {
     inRow++;
     i--;
   }
 
-  // Koukni doprava
+  // Vpravo hled!
   i = from.column;
   while (i < gridsize - 1 && symbol === getSymbol(getField(from.row, i + 1))) {
     inRow++;
@@ -83,14 +93,14 @@ const isWinningMove = (field) => {
   }
 
   let inColumn = 1;
-  // Koukni nahoru
+  // Vzhůru hleď!
   i = from.row;
   while (i > 0 && symbol === getSymbol(getField(i - 1, from.column))) {
     inColumn++;
     i--;
   }
 
-  // Koukni dolu
+  // Dolů hleď!
   i = from.row;
   while (
     i < gridsize - 1 &&
@@ -101,6 +111,66 @@ const isWinningMove = (field) => {
   }
 
   if (inColumn >= winningSymbols) {
+    return true;
+  }
+
+  // Diagonála z pravého horního do levého dolního rohu nefunguje, ale už nevím, co s tím :-/
+
+  // Šikmo nahoru vlevo hleď!
+  let d;
+  i = from.column;
+  d = from.row;
+
+  let inDiagonalLeft = 1;
+
+  while (d > 0 && i > 0 && symbol === getSymbol(getField(d - 1, i - 1))) {
+    inDiagonalLeft++;
+    i--;
+    d--;
+  }
+
+  // Šikmo dolů vpravo hleď!
+  i = from.column;
+  d = from.row;
+  while (
+    d < gridsize - 1 &&
+    i < gridsize - 1 &&
+    symbol === getSymbol(getField(d + 1, i + 1))
+  ) {
+    inDiagonalLeft++;
+    i++;
+    d++;
+  }
+
+  if (inDiagonalLeft >= winningSymbols) {
+    return true;
+  }
+
+  //Šikmo nahoru vpravo hleď!
+  let inDiagonalRight = 1;
+
+  i = from.column;
+  d = from.row;
+  while (d > 0 && i > 0 && symbol === getSymbol(getField(d - 1, i + 1))) {
+    inDiagonalRight++;
+    i++;
+    d--;
+  }
+
+  //Šikmo dolů vlevo hleď!
+  i = from.column;
+  d = from.row;
+  while (
+    i < gridsize - 1 &&
+    d < gridsize - 1 &&
+    symbol === getSymbol(getField(d + 1, i - 1))
+  ) {
+    inRow++;
+    i--;
+    d++;
+  }
+
+  if (inDiagonalRight >= winningSymbols) {
     return true;
   }
   return false;
