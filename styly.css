@@ -165,6 +165,7 @@ figure figcaption {
 .headingGame {
   max-width: 80vmin;
   width: 100%;
+  margin-top: 0;
 }
 
 .navGame {
@@ -243,10 +244,16 @@ figure figcaption {
   background-image: url(images/cross.svg);
   background-position: center;
   background-repeat: no-repeat;
+  background-size: 55%;
 }
 
 .imgGameCircle {
   background-image: url(images/circle.svg);
   background-position: center;
   background-repeat: no-repeat;
+  background-size: 55%;
+}
+
+p img {
+  vertical-align: text-bottom;
 }
