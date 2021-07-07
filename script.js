@@ -165,7 +165,7 @@ const isWinningMove = (field) => {
     d < gridsize - 1 &&
     symbol === getSymbol(getField(d + 1, i - 1))
   ) {
-    inRow++;
+    inDiagonalRight++;
     i--;
     d++;
   }
